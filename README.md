@@ -97,9 +97,11 @@ each model behaves when it is used outside the data it was trained on.
 The dataset has 318 simulated cultures. The growth rate ranges from 0 to 0.75 d⁻¹ with a mean of 0.283 d⁻¹, and 24
 cultures have a growth rate of exactly zero, which suggests that negative values were clipped to zero. The scatter
 plots show a clear optimum for pH, a weaker optimum for temperature, an increase with glucose, and a decrease with
-lactate. The correlation between pH and growth rate is only 0.013 even though pH has a strong effect. This is because
-the correlation coefficient only measures straight-line relationships, and the increase below the optimum cancels the
-decrease above it. This already shows that a linear model will not be enough. The data is also very noisy: cultures
+lactate. The result that surprised me most was the correlation between pH and growth rate, which is only 0.013 even
+though pH has the strongest effect of the four features. The correlation coefficient only measures straight-line
+relationships, and for pH the increase below the optimum cancels the decrease above it. If features were removed based
+on correlation alone, the most important one would be lost. This is a good reminder to plot the data before choosing
+features, and it also shows that a linear model will not be enough. The data is also very noisy: cultures
 with almost the same conditions can have very different growth rates, so no model is expected to reach a high R².
 
 ### Choice of Model and Hyperparameters
@@ -246,6 +248,9 @@ help choose setpoints for pH and temperature control (around pH 7.0 and 36 °C) 
 when the pH drifts. It can support feeding and media exchange decisions, for example by showing how much growth is lost
 as lactate accumulates (about 0.1 d⁻¹ from 0 to 10 mM). It could also be used to monitor a running culture: if the
 measured growth rate is much lower than the predicted value for the current conditions, it could mean contamination or
-an equipment problem. Finally, the model can suggest where to run the next experiments, for example at low
-temperatures and extreme pH values, where data is sparse and the two models disagree. In all cases, predictions should
+an equipment problem. If I used this model in the lab, I would mainly use it to plan
+the next experiments. The most useful conditions to test are where data is sparse and the two models disagree, because
+new measurements there would likely improve the model the most. Below 34 °C there are only 12 of the 254 training
+samples, and at 32 °C the two models predict 0.26 and 0.35 d⁻¹. The grey corners of the temperature × pH map, with
+extreme pH values, also have almost no training samples. In all cases, predictions should
 only be used inside the range of the training data, and negative predictions should be treated as zero.
