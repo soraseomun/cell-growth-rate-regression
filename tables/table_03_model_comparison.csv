@@ -1,0 +1,6 @@
+model,train_rmse,valid_rmse_mean,valid_rmse_std,valid_r2_mean,test_rmse,test_r2
+Polynomial (degree 1),0.1714,0.177,0.013,0.0067,0.1907,0.0917
+Polynomial (degree 2),0.1429,0.1568,0.0156,0.1846,0.157,0.3841
+Polynomial (degree 3),0.13,0.1706,0.0152,0.0419,0.1531,0.4144
+"kNN (uniform, k=10)",0.1443,0.1559,0.0111,0.2284,0.1584,0.3737
+"kNN (distance, k=10)",0.0,0.1547,0.0107,0.2367,0.1557,0.3941

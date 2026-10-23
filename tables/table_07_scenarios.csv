@@ -1,0 +1,10 @@
+scenario,Temperature [C],pH,Glucose [mM],Lactate [mM],poly_prediction,knn_prediction,inside_data_range
+Fresh medium,36.5,7.1,30.0,2.0,0.548,0.575,True
+Typical culture,37.0,7.0,15.0,15.0,0.338,0.319,True
+Glucose depletion,37.0,7.0,1.0,15.0,0.305,0.316,True
+Acidic pH and high lactate,37.0,6.4,10.0,30.0,0.116,0.114,True
+Alkaline pH,37.0,7.7,15.0,15.0,0.06,0.076,True
+Low temperature,32.0,7.0,15.0,15.0,0.263,0.347,True
+High temperature,41.5,7.0,15.0,15.0,0.203,0.212,True
+Outside data range (45 C),45.0,7.0,15.0,15.0,-0.036,0.169,False
+Outside data range (60 mM glucose),37.0,7.0,60.0,0.0,0.861,0.462,False
